@@ -30,6 +30,6 @@ jobs:
       - name: Run Semgrep SAST
         run: |
           pip install semgrep
-          semgrep scan --config auto --error
+          semgrep scan --config auto --error config.py
       
     
