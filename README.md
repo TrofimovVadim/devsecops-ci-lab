@@ -20,6 +20,8 @@
 ### 1. Обнаружение утечки (Сборка заблокирована)
 При попытке загрузить код с тестовым API-ключом сканер Gitleaks перехватывает ошибку и останавливает процесс:
 <img width="1265" height="569" alt="Снимок экрана 2026-11-23 224803" src="https://github.com/user-attachments/assets/3d5ea244-3828-49e7-a67f-39da6d9b4dc6" />
+<img width="1499" height="814" alt="Снимок экрана 2026-11-24 182522" src="https://github.com/user-attachments/assets/367b849b-98cf-4d96-bee5-c4adce7c04f2" />
+
 
 
 
