@@ -1,7 +1,7 @@
 FROM python:3.12-alpine
 RUN apk update && apk upgrade --no-cache && \
 pip install --no-cache-dir --upgrade pip && \
-pip unistall -y setuptools wheel
+pip uninstall -y setuptools wheel
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 WORKDIR /app
 COPY --chown=appuser:appgroup . .
