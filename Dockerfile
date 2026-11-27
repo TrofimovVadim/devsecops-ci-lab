@@ -1,6 +1,7 @@
 FROM python:3.12-alpine
 RUN apk update && apk upgrade --no-cache && \
-pip install --no-cache-dir --upgrade pip "setuptools>=78.1.1" wheel
+pip install --no-cache-dir --upgrade pip "setuptools>=78.1.1" wheel && \
+rm -rf /usr/local/lib/python*/ensurepip/_bundled/setuptools*
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 WORKDIR /app
 COPY --chown=appuser:appgroup . .
