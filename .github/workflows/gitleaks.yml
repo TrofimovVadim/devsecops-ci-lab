@@ -31,5 +31,27 @@ jobs:
         run: |
           pip install semgrep
           semgrep scan --config auto --error config.py
+  trivy-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Скачиваем код
+        uses: actions/checkout@v4
+
+      - name: Проверяем Dockerfile
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          scan-ref: '.'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
       
-    
+      - name: Собираем Docker-образ
+        run: docker build -t devsecops-app:test .
+
+      - name: Сканируем Docker-образ на CVE
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'devsecops-app:test'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+          
